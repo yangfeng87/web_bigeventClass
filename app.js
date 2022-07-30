@@ -29,10 +29,13 @@ app.use(exxpressJwt({ secret: config.jwtSecretKey }).unless({ path: [/^\/api\//]
 const userouter = require('./router/user');
 const userinfoRouter = require('./router/userinfo');
 const artCatesRouter = require('./router/artcate');
+const articleRouter = require('./router/article');
 //挂载路由
 app.use('/api', userouter);
 app.use('/my', userinfoRouter);
 app.use('/my/article', artCatesRouter);
+app.use('/my/article', articleRouter);
+app.use('/uploads', express.static('./uploads'));
 
 
 //全局错误函数
